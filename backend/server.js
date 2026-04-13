@@ -60,9 +60,17 @@ app.use('/api/promotions', promotionRoutes);
 app.use('/api/upload', uploadRoutes);
 
 // Health check
+
+app.get('/', (req, res) => {
+  res.send('ShopWave API is running perfectly on Vercel!');
+});
+
+
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'ShopWave API is running', timestamp: new Date() });
 });
+
 
 // Error Middleware
 app.use(notFound);
@@ -76,9 +84,6 @@ app.listen(PORT, () => {
   console.log(`${'='.repeat(50)}\n`.cyan);
 });
 
-app.get('/', (req, res) => {
-  res.send('ShopWave API is running perfectly on Vercel!');
-});
 
 process.on('unhandledRejection', (err) => {
   console.error(`❌ Unhandled Rejection: ${err?.message || err}`.red);
