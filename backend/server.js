@@ -76,6 +76,10 @@ const server = app.listen(PORT, () => {
   console.log(`${'='.repeat(50)}\n`.cyan);
 });
 
+app.get('/', (req, res) => {
+  res.send('ShopWave API is running perfectly on Vercel!');
+});
+
 process.on('unhandledRejection', (err) => {
   console.error(`❌ Unhandled Rejection: ${err?.message || err}`.red);
   console.error(err?.stack);
