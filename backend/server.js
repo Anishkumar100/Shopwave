@@ -69,7 +69,7 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`\n${'='.repeat(50)}`.cyan);
   console.log(`🚀 ShopWave Server running on PORT ${PORT}`.green.bold);
   console.log(`📦 Environment: ${process.env.NODE_ENV}`.yellow);
